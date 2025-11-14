@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --background: #101828;
+  --foreground: #f9fafb;
+  --text: #6e7583;
+}
+/* :root {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --background: #f9fafb;
+  --foreground: #171717;
+  --text: #6e7583;
+} */
+
+/* .dark {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --background: #f9fafb;
+  --foreground: #171717;
+  --text: #6e7583;
+} */
+
+@theme {
+  --color-text: var(--text);
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+/* global.css */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b; /* slate-800 */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #64748b; /* slate-500 */
+  border-radius: 4px;
+  border: 2px solid #1e293b; /* adds padding effect */
+}

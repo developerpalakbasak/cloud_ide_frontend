@@ -1,0 +1,6 @@
+@keyframes shine {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* nothing else required — animation is set inline in component */
