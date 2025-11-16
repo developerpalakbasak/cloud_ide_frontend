@@ -398,6 +398,7 @@ export default function ProjectPage({ params }) {
                   project={project}
                   fetchProjectTree={fetchProjectTree}
                   socket={socket}
+                  setShowSidebar={setShowSidebar}
                 />
             )}
           </div>

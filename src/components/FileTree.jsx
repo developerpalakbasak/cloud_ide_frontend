@@ -11,7 +11,7 @@ import { FaFileAlt, FaJs, FaNodeJs, FaPython } from "react-icons/fa";
 import { BiLogoTypescript } from "react-icons/bi";
 
 
-export default function FileTree({ fetchFile, setCurrentFile, currentFile, setBash, rawTree, project, fetchProjectTree, socket }) {
+export default function FileTree({ fetchFile, setCurrentFile, currentFile, setBash, rawTree, project, fetchProjectTree, socket, setShowSidebar }) {
   const [tree, setTree] = useState([]);
 
   const [fileName, setFileName] = useState("")
@@ -30,6 +30,7 @@ export default function FileTree({ fetchFile, setCurrentFile, currentFile, setBa
   }, [rawTree]);
 
   const handleFileClick = (targetPath) => {
+    setShowSidebar(false);
     setCurrentFile(targetPath);
     setBash(false);
   };
