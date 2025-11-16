@@ -8,21 +8,16 @@ export async function middleware(req) {
   // console.log(token)
   const { pathname } = req.nextUrl;
 
-  //   // ✅ If user already logged in, block access to login/signup
-  // if (token && unauthRoutes.includes(pathname)) {
-  //   return NextResponse.redirect(new URL("/profile", req.url));
-  // }
-
   if (token && unauthRoutes.includes(pathname)) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  // ✅ If route is /login or /signup, allow even without token
+  // If route is /login or /signup, allow even without token
   if (unauthRoutes.includes(pathname)) {
     return NextResponse.next();
   }
 
-  //   // ✅ For all other protected routes
+  //  For all other protected routes
   if (!token) {
     return NextResponse.redirect(new URL("/login", req.url));
   }

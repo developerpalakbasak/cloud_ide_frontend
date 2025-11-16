@@ -18,8 +18,10 @@ const CodeCard = (props) => {
     const [deletePopup, setDeletePopup] = useState(false)
 
 
+
     const deleteProjectHandler = async () => {
         setDeletePopup(false);
+        setOption(false);
         const res = await API.delete(`project/delete/${props._id}`)
         if (res.data.success) {
             props.fetchProject()
@@ -69,6 +71,7 @@ const CodeCard = (props) => {
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-between items-center">
                             <Link
+                            onClick={()=> props.setLoading(true)}
                                 href={`@${loggedInUser.username}/${props.slug}`}
                                 className="text-base font-medium  hover:bg-slate-700/80  text-gray-200 rounded text-left pl-2 pr-3 py-1">
                                 <span className="flex gap-4 items-center ">

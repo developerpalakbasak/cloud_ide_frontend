@@ -10,7 +10,7 @@ import { RxAvatar } from 'react-icons/rx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaArrowLeft } from "react-icons/fa6";
-import Loader from './Loader';
+import Loader from './loaders/Loader';
 
 
 

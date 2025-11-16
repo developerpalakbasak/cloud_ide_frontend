@@ -1,7 +1,7 @@
 "use client"
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import Loader from "@/components/Loader";
+import Loader from "@/components/loaders/Loader";
 import { useAuth } from "@/context/AuthContext";
 
 

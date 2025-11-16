@@ -8,6 +8,7 @@ import { FaNodeJs, FaPython } from "react-icons/fa";
 import { SiExpress, SiFlask, SiDjango } from "react-icons/si";
 import { BiLogoTypescript } from "react-icons/bi";
 import toast from "react-hot-toast";
+import Loader from "./loaders/Loader";
 
 const CreateProject = () => {
   const [createProject, setCreateProject] = useState(false);
@@ -15,6 +16,7 @@ const CreateProject = () => {
 
   const [language, setLanguage] = useState({ label: "NodeJS", value: "nodejs" });
   const [openPopup, setOpenPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [framework, setframework] = useState({ label: "Express", value: "express", language: "javascript" });
 
@@ -25,7 +27,15 @@ const CreateProject = () => {
   const ref = useRef()
 
   const handleCreate = async () => {
-    if (projectName && currentSeleted == "language" && language.value) {
+
+    if (!projectName) {
+      toast.error("Project name is required");
+    } else if (!language.value) {
+      toast.error("Please select a language or frameworks")
+    } else if (projectName && currentSeleted == "language" && language.value) {
+
+      setLoading(true);
+
       try {
         const res = await API.post("/create/languageproject", {
           name: projectName,
@@ -36,7 +46,7 @@ const CreateProject = () => {
         }
       } catch (error) {
         toast.error(error.response.data.message);
-      }
+      } 
     } else if (projectName && currentSeleted == "framework" && framework.value) {
       try {
         const res = await API.post("/create/frameworkproject", {
@@ -52,10 +62,6 @@ const CreateProject = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    } else if (!projectName) {
-      toast.error("Project name is required")
-    } else if (!language.value) {
-      toast.error("Please select a language or frameworks")
     }
   };
 
@@ -127,7 +133,7 @@ const CreateProject = () => {
         <CiCirclePlus size={20} />
       </button>
 
-      {createProject && (
+      {!loading ? createProject && (
         <div className="fixed inset-0 flex justify-center items-center bg-slate-950/70 z-50">
           <div ref={ref} className="w-[400px] bg-slate-900 p-5 rounded-lg shadow-lg flex flex-col gap-4">
             <p className="text-slate-400 text-sm">Enter project details</p>
@@ -211,7 +217,7 @@ const CreateProject = () => {
                         framework.availability && setframework({ label: framework.label, value: framework.value, language: framework.language });
                         setOpenPopup(false);
                       }}
-                      className={`flex justify-between items-center gap-2 px-3 py-2 ${framework.availability ? "cursor-pointer":"cursor-auto"} hover:bg-slate-700 ${framework.value === framework.value ? "bg-slate-700" : ""
+                      className={`flex justify-between items-center gap-2 px-3 py-2 ${framework.availability ? "cursor-pointer" : "cursor-auto"} hover:bg-slate-700 ${framework.value === framework.value ? "bg-slate-700" : ""
                         }`}
                     >
                       <span className="flex justify-center items-center gap-2">
@@ -251,7 +257,11 @@ const CreateProject = () => {
             </div>
           </div>
         </div>
-      )}
+      ) : <>
+        <div className="fixed inset-0 flex flex-col justify-center items-center bg-slate-950/70 z-50">
+          <Loader/>
+        </div>
+      </>}
     </div>
   );
 };

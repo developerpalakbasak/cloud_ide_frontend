@@ -15,9 +15,9 @@ import FileTree from "@/components/FileTree";
 import Editor from "@monaco-editor/react";
 import socket from "@/utils/socket";
 import { useRouter } from "next/navigation";
-import Loader from "@/components/Loader";
+import Loader from "@/components/loaders/Loader";
 import toast from "react-hot-toast";
-import LoaderLine from "@/components/LoaderLine";
+import LoaderLine from "@/components/loaders/LoaderLine";
 import { MdOutlineCloudDone } from "react-icons/md";
 import { AiOutlineCloudSync } from "react-icons/ai";
 

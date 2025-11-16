@@ -1,7 +1,7 @@
 "use client";
 import { use, useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import Loader from "@/components/Loader";
+import Loader from "@/components/loaders/Loader";
 import Navbar from "@/components/Navbar";
 import NotFound from "@/components/NotFound";
 import OthersProfile from "@/components/OthersProfile";

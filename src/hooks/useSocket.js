@@ -1,4 +1,3 @@
-// src/hooks/useSocket.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,12 +8,19 @@ let socket;
 export function useSocket() {
   const [isConnected, setIsConnected] = useState(false);
 
-  useEffect(() => {
+
+useEffect(() => {
     if (!socket) {
-      socket = io("http://localhost:4000", { withCredentials: true });
+      socket = io("process.env.NEXT_PUBLIC_BACKEND_SOCKET_URL", {
+        path: "/socket.io/",
+        transports: ["websocket", "polling"],
+        withCredentials: true
+      });
+
+
     }
 
-    socket.on("connect", () => setIsConnected(true));
+   socket.on("connect", () => setIsConnected(true));
     socket.on("disconnect", () => setIsConnected(false));
 
     return () => {

@@ -6,7 +6,7 @@ import Logo from './Logo'
 import AuthLinks from './AuthLinks'
 import { useAuth } from '@/context/AuthContext'
 import Link from 'next/link'
-import Loader from './Loader'
+import Loader from './loaders/Loader'
 import Image from 'next/image'
 
 const HeroSection = () => {
