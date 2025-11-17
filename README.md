@@ -1,31 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧩 Code-Sphere Frontend  
+A modern, high-performance **Cloud IDE frontend** built with **Next.js 15**, featuring a fully interactive coding environment with:
 
-## Getting Started
+- Monaco Editor (VS Code editor)  
+- Real-time terminal (XTerm.js)  
+- Docker container integration  
+- Live command output via Socket.IO  
+- Git support (clone/import)  
+- User workspace management  
+- OAuth-ready login system  
 
-First, run the development server:
+Backend deployed at: **http://103.174.51.218**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **Note:** Google and GitHub Sign-In are temporarily disabled because the production domain has not been added yet.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Live Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The frontend connects to this backend API & terminal server:
 
-## Learn More
+👉 **http://103.174.51.218**
 
-To learn more about Next.js, take a look at the following resources:
+The backend provides:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Project isolation  
+- Container execution  
+- Terminal streaming  
+- Git clone support  
+- File operations  
+
+---
+
+# 🛠️ Tech Stack
+
+### **Framework**
+- Next.js 15 (App Router)
+- React 19  
+- Turbopack (for ultra-fast dev mode)
+
+### **UI & Components**
+- Tailwind CSS 4 (no PostCSS config needed)
+- Framer Motion  
+- React Icons  
+- React Hot Toast  
+
+### **Editor & Terminal**
+- Monaco Editor (`@monaco-editor/react`)
+- XTerm.js (`@xterm/xterm`)
+- XTerm Fit Addon (`@xterm/addon-fit`)
+
+### **Networking**
+- Axios  
+- Socket.IO Client  
+- JWT / JOSE for auth  
+
+---
+
+# ✨ Features
+
+### ✔️ VSCode-like Code Editor  
+Fully featured Monaco Editor with syntax highlighting and auto layout.
+
+### ✔️ Real-time Terminal  
+XTerm.js terminal connected to backend Docker containers.
+
+You can run:- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
