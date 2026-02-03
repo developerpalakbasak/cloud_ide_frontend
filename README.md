@@ -1,65 +1,36 @@
-# 🧩 Code-Sphere Frontend  
-A modern, high-performance **Cloud IDE frontend** built with **Next.js 15**, featuring a fully interactive coding environment with:
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-- Monaco Editor (VS Code editor)  
-- Real-time terminal (XTerm.js)  
-- Docker container integration  
-- Live command output via Socket.IO  
-- Git support (clone/import)  
-- User workspace management  
-- OAuth-ready login system  
+## Getting Started
 
-Backend deployed at: **http://103.174.51.218**
+First, run the development server:
 
-> **Note:** Google and GitHub Sign-In are temporarily disabled because the production domain has not been added yet.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🚀 Live Backend
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-The frontend connects to this backend API & terminal server:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-👉 **http://103.174.51.218**
+## Learn More
 
-The backend provides:
+To learn more about Next.js, take a look at the following resources:
 
-- Project isolation  
-- Container execution  
-- Terminal streaming  
-- Git clone support  
-- File operations  
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-# 🛠️ Tech Stack
+## Deploy on Vercel
 
-### **Framework**
-- Next.js 15 (App Router)
-- React 19  
-- Turbopack (for ultra-fast dev mode)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### **UI & Components**
-- Tailwind CSS 4 (no PostCSS config needed)
-- Framer Motion  
-- React Icons  
-- React Hot Toast  
-
-### **Editor & Terminal**
-- Monaco Editor (`@monaco-editor/react`)
-- XTerm.js (`@xterm/xterm`)
-- XTerm Fit Addon (`@xterm/addon-fit`)
-
-### **Networking**
-- Axios  
-- Socket.IO Client  
-- JWT / JOSE for auth  
-
----
-
-# ✨ Features
-
-### ✔️ VSCode-like Code Editor  
-Fully featured Monaco Editor with syntax highlighting and auto layout.
-
-### ✔️ Real-time Terminal  
-XTerm.js terminal connected to backend Docker containers.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

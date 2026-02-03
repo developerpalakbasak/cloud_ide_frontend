@@ -11,19 +11,18 @@ const CodeSection = () => {
   const { loggedInUser } = useAuth();
 
 
-  // console.log(loggedInUser)
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true)
 
 
 const fetchProject = async () => {
-  console.log("fetch project clicked");
+  // console.log("fetch project clicked");
 
   try {
     const res = await API.get("project/getall");
     setProjects(res.data.projects);
   } catch (err) {
-    console.error("Fetch project error:", err);
+    // console.error("Fetch project error:", err);
     setProjects([]); // fallback
   } finally {
     // setLoading(true); 
@@ -54,7 +53,7 @@ const fetchProject = async () => {
 
           : (
             <div>
-              <h1>No Projects Available</h1>
+              <h1>No Project Available</h1>
             </div>
           ) :
           <>

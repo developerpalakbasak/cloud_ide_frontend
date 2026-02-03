@@ -310,6 +310,10 @@ export default function ProjectPage({ params }) {
   socket.on("errorOccurred", ({ success, message }) => {
     toast.error(message)
   });
+  // run bad command in shell
+  socket.on("badCommand", ({ success, message }) => {
+    toast.error(message)
+  });
 
 
 

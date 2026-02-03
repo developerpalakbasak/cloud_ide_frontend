@@ -22,13 +22,13 @@ const ProfilePage = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
           viewport={{ once: true, amount: 0 }}
-          className="text-4xl font-bold mb-4"
+          className="text-2xl md:text-3xl font-bold mb-2"
         >
-          Project Page
+          My Workspace
         </motion.h1>
 
 
-        <motion.p
+        {/* <motion.p
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.35 }}
@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
           className="text-2xl">
           Username: <span className="font-semibold">{loggedInUser?.username}</span>
-        </motion.p>
+        </motion.p> */}
 
         {loggedInUser && (
           <motion.p
