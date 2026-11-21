@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
   };
 
   // ✅ Fetch user on initial load
-  const fetchUser = async () => {
+  const fetchUser = async (retries = 2) => {
     try {
       const res = await API.get("/user/info");
 
@@ -59,6 +59,11 @@ const AuthProvider = ({ children }) => {
 
       return res.data;
     } catch (err) {
+      // If server is momentarily restarting (network error or 5xx), retry before assuming logged out
+      if (retries > 0 && (!err.response || err.response.status >= 500)) {
+        setTimeout(() => fetchUser(retries - 1), 1000);
+        return;
+      }
       setLoggedInUser(null);
     } finally {
       setAuthLoading(false);

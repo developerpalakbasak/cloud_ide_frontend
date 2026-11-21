@@ -195,11 +195,10 @@ export default function ProjectPage({ params }) {
 
 
   useEffect(() => {
-    if (language && project) {
+    if ((language || framework) && project) {
       socket.emit("startContainer", { language, framework, project });
     }
-
-  }, [language])
+  }, [language, framework, project]);
 
 
   const autoSaveAndRun = () => {
@@ -488,25 +487,31 @@ export default function ProjectPage({ params }) {
                 )}
                 {framework && <div className="bg-slate-700 h-[2.5rem] p-2 text-sm flex flex-col">
                   <div className="flex justify-between mb-2 shrink-0">
-                    {!isFirstRender ? <div className="flex justify-between items-center gap-1 ">
-                      <span className="inline-block w-2.5 h-2.5 bg-green-500 rounded-full"></span>
-                      <p className="text-slate-400">Server running at:-</p>
-                    </div> :
-                      <div className="flex justify-between items-center gap-1 ">
+                    {isRunning ? (
+                      <div className="flex justify-between items-center gap-1">
+                        <span className="inline-block w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+                        <p className="text-slate-400">Server running at:-</p>
+                      </div>
+                    ) : (
+                      <div className="flex justify-between items-center gap-1">
                         <span className="inline-block w-2.5 h-2.5 bg-red-500 rounded-full"></span>
                         <p className="text-slate-400">Server not running</p>
                       </div>
-
-                    }
-                    {framework && liveServer && isChangeSaved ? <Link
-                      href={liveServer}
-                      target="_blank"
-                      className="underline">
-                      {liveServer}
-                    </Link> : <>
-                      {!isFirstRender && <p className="text-slate-400">Waiting for server to restart</p>}
-                    </>
-                    }
+                    )}
+                    {framework && isRunning && liveServer && isChangeSaved ? (
+                      <Link
+                        href={liveServer}
+                        target="_blank"
+                        className="underline text-blue-400 hover:text-blue-300">
+                        {liveServer}
+                      </Link>
+                    ) : (
+                      <>
+                        {isRunning && !isChangeSaved && (
+                          <p className="text-slate-400">Waiting for server to restart...</p>
+                        )}
+                      </>
+                    )}
                   </div>
                 </div>}
 
